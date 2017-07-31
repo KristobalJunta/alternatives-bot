@@ -21,6 +21,16 @@ def handle_help(message):
     bot.send_message(message.chat.id, response)
 
 
+@bot.message_handler(commands=['ask'])
+def handle_ask(message):
+    print('received ask command')
+    if "или" in message.text:
+        response = "Шо то хуйня, шо это хуйня. Вот это обе хуйни такие, шо я, бля, ебал её маму у рот."
+        bot.send_message(message.chat.id, response)
+    else:
+        bot.send_message(message.chat.id, 'Шо?')
+
+
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
     print('received a message')
